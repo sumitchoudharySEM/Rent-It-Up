@@ -68,7 +68,7 @@ export const Footer: React.FunctionComponent = () => {
             color: "white",
           }}
         >
-          All rights reserved
+         <strong>All rights reserved</strong> 
         </Box>
 
         <Flex mx="-2">
