@@ -23,11 +23,11 @@ export const NiftoryWalletInitializer = () => {
       }
 
       switch (wallet?.state) {
-        case WalletState.PendingCreation:
-          throw new Error("WalletCreationPending")
+        // case WalletState.PendingCreation:
+        //   throw new Error("WalletCreationPending")
 
-        case WalletState.CreationFailed:
-          throw new Error("WalletCreationFailed")
+        // case WalletState.CreationFailed:
+        //   throw new Error("WalletCreationFailed")
 
         case WalletState.Ready:
           return true
