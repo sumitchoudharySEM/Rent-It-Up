@@ -2,10 +2,13 @@ import { Box, Heading, chakra, Stack, Button, Icon, Image, Text } from '@chakra-
 import { NextPage } from 'next';
 import AppLayout from '../components/AppLayout';
 import ExampleComponent from 'ui/Extracomponent';
+import NavbarNew from '../ui/Navbar/NavbarNew';
 
 const Home: NextPage = () => {
   return (
+
     <Box>
+        <NavbarNew />
       {/* <AppLayout> */}
         <Box px={8} py={24} mx="auto">
           <Box

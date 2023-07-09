@@ -2,6 +2,7 @@ import AppLayout from "../components/AppLayout"
 import { Center, Box, VStack, Text, Button } from "@chakra-ui/react"
 import { WalletDetails } from "ui/Wallet/WalletDetails"
 import { Logout } from "@components/Logout"
+import NavbarNew from '../ui/Navbar/NavbarNew';
 
 import { useAuthContext } from "hooks/useAuthContext"
 
@@ -16,7 +17,8 @@ const HomePage = () => {
   const wallet = data?.wallet
   const fetching = walletFetching || isLoading
   return (
-  
+  <>
+          <NavbarNew />
       <Center py={{ base: "1rem" }} flexDir="column" position="relative">
         <Box px="1rem">
           <VStack>
@@ -51,7 +53,7 @@ const HomePage = () => {
           </VStack>
         </Box>
       </Center>
-    
+      </>
   )
 }
 
