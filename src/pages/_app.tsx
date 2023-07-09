@@ -7,7 +7,7 @@ import { ComponentWithAuth } from "../components/ComponentWithAuth"
 import theme from "../lib/chakra-theme"
 import Head from "next/head"
 import { NiftoryClientProvider } from "graphql/niftoryClientProvider"
-import { NiftoryWalletInitializer } from "@components/NiftoryWalletInitializer"
+import { NiftoryWalletInitializer } from "@components/NiftoryWalletInitializer.js"
 
 type AppProps<P = {}> = NextAppProps<P> & {
   Component: ComponentWithAuth
