@@ -6,7 +6,7 @@ import ExampleComponent from 'ui/Extracomponent';
 const Home: NextPage = () => {
   return (
     <Box>
-      <AppLayout>
+      {/* <AppLayout> */}
         <Box px={8} py={24} mx="auto">
           <Box
             w={{
@@ -160,7 +160,7 @@ const Home: NextPage = () => {
         </Box>
         <ExampleComponent />
         
-      </AppLayout>
+      {/* </AppLayout> */}
     </Box>
   );
 };
