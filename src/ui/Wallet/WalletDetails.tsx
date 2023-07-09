@@ -5,6 +5,7 @@ import {
   Button,
   Tooltip,
   Box,
+  HStack,
   Center,
   useDisclosure,
   VStack,
@@ -52,7 +53,7 @@ export const WalletDetails = (props: WalletDetailsProps) => {
       ) : (
         <>
           <WalletSwitcherModal disclosure={disclosure} />
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4" minW={"280px"} p="1rem">
+          <SimpleGrid mt={10} columns={{ base: 1, md: 2 }} spacing="4" minW={"280px"} p="1rem">
             <Tooltip label="View wallet on flowscan" hasArrow placement="top">
               <Box cursor="pointer">
                 <WalletGridBox
@@ -84,26 +85,28 @@ export const WalletDetails = (props: WalletDetailsProps) => {
               showTooltop
             />
           </SimpleGrid>
-          <VStack>
-            <Button
-              backgroundColor="brand.400"
-              onClick={(e) => {
-                disclosure.onOpen()
-              }}
-            >
-              Switch or Add Wallet
-            </Button>
-            {walletStatus != WalletState.Ready ? (
-              <Button
-                p="6"
-                backgroundColor="brand.400"
-                fontSize="md"
-                onClick={() => backendClient("createWallet")}
-              >
-                Retry Wallet Creation
-              </Button>
-            ) : null}
-          </VStack>
+          <VStack mt={10}>
+      <HStack spacing={4}>
+        <Button
+          backgroundColor="brand.400"
+          onClick={() => {
+            disclosure.onOpen();
+          }}
+        >
+          Switch or Add Wallet
+        </Button>
+        {walletStatus !== WalletState.Ready ? (
+          <Button
+            p={6}
+            backgroundColor="brand.400"
+            fontSize="md"
+            onClick={() => backendClient('createWallet')}
+          >
+            Retry Wallet Creation
+          </Button>
+        ) : null}
+      </HStack>
+    </VStack>
         </>
       )}
     </>

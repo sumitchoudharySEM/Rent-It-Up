@@ -1,10 +1,14 @@
 import { Box, Heading, Flex, chakra, Image, SimpleGrid } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import AppLayout from '../components/AppLayout';
+import NavbarNew from '../ui/Navbar/NavbarNew';
+
+
 
 const Marketplace: NextPage = () => {
   return (
     <Box>
+      <NavbarNew/>
       {/* <AppLayout> */}
         <Box padding="4">
           <Flex align="center" justify="center">
