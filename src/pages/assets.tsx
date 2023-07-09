@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import { setupUserTx } from "../cadence/transactions/setup_user.js"
 import NavbarNew from "../ui/Navbar/NavbarNew"
 import { mintNFT } from "../cadence/transactions/mint_assets.js";
-import { Web3Storage } from "web3.storage";
+import { Web3Storage } from 'web3.storage'
 
 fcl.config().put("accessNode.api", "https://access-testnet.onflow.org").put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn");
 
@@ -29,7 +29,9 @@ const Assets: NextPage = () => {
   const [NFTName, setNFTName] = useState()
   const [file, setFile] = useState()
   const [id, setId] = useState()
-  const [price, setPrice] = useState()
+  const [priceStack, setPriceStack] = useState()
+  const [pricePerDay, setPricePerDay] = useState()
+
 
   const setUserTx = async () => {
     console.log("setting up user")
@@ -47,6 +49,11 @@ const Assets: NextPage = () => {
     console.log(transactionID)
     return fcl.tx(transactionID).onceSealed()
   }
+  const set_file = () => {
+    const fileInput = document.querySelector('input[type="file"]');
+    setFile(fileInput);
+    console.log(file);
+  };
   const mint = async () => {
       console.log("Uploading file...");
       console.log(file);
@@ -121,28 +128,12 @@ const Assets: NextPage = () => {
             </Box>
           </Heading>
         </Flex>
-        <form onSubmit={handleSubmit}>
+        <form >
           <Box bg="white" p={6} rounded="lg">
+                        
             <Box mb={4}>
               <Text color="gray.700" fontWeight="medium" mb={2}>
-                Project ID: {projectId.projectId}
-              </Text>
-              <Input
-                bg="gray.200"
-                border="2px"
-                borderColor="gray.200"
-                rounded="md"
-                w={500}
-                py={2}
-                mr={2}
-                px={4}
-                color="gray.700"
-                value={projectId.projectId}
-              />
-            </Box>
-            <Box mb={4}>
-              <Text color="gray.700" fontWeight="medium" mb={2}>
-                Bidding Amount
+                Price to Stack
               </Text>
               <Input
                 bg="gray.200"
@@ -154,12 +145,12 @@ const Assets: NextPage = () => {
                 px={4}
                 color="gray.700"
                 type="number"
-                value={funding}
+                onChange={(e) => setPriceStack(e.target.value)}
               />
             </Box>
             <Box mb={4}>
               <Text color="gray.700" fontWeight="medium" mb={2}>
-                Wallet Address
+                Price per day
               </Text>
               <Input
                 bg="gray.200"
@@ -170,28 +161,14 @@ const Assets: NextPage = () => {
                 py={2}
                 px={4}
                 color="gray.700"
-                type="text"
-                value={auctionLength}
-                onChange={(e) => setAuctionLength(e.target.value)}
+                type="number"
+                onChange={(e) => setPricePerDay(e.target.value)}
               />
             </Box>
-            <Box mb={4}>
-              <Text color="gray.700" fontWeight="medium" mb={2}>
-                Other Information
-              </Text>
-              <Textarea
-                bg="gray.200"
-                border="2px"
-                borderColor="gray.200"
-                rounded="md"
-                w={500}
-                py={2}
-                px={4}
-                color="gray.700"
-                value={otherInformation}
-                onChange={(e) => setOtherInformation(e.target.value)}
-              />
-            </Box>
+            
+            upload image
+            <input type="file" onChange={(e) => set_file()} />
+            
             <Button
               bg="purple.500"
               color="white"
@@ -199,12 +176,13 @@ const Assets: NextPage = () => {
               rounded="md"
               py={2}
               px={4}
-              type="submit"
+              onClick={() => mint()}
             >
               Submit
             </Button>
           </Box>
         </form>
+        {/* setup user collection  */}
         <Button
           bg="purple.500"
           color="white"
