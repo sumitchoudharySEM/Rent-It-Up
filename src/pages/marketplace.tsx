@@ -7,8 +7,37 @@ const Marketplace: NextPage = () => {
     <Box>
       <AppLayout>
         <Box padding="4">
-          <Heading size="lg">Welcome to the Marketplace Page!</Heading>
-          {/* Add your desired content here */}
+        <Heading
+              mb={6}
+              fontSize={{
+                base: "4xl",
+                md: "6xl",
+              }}
+              fontWeight="bold"
+              lineHeight="none"
+              letterSpacing={{
+                base: "normal",
+                md: "tight",
+              }}
+              color="gray.900"
+              _dark={{
+                color: "gray.100",
+              }}
+            >
+              {" "}
+              <Box
+                display={{
+                  base: "block",
+                  lg: "inline",
+                }}
+                w="full"
+                bgClip="text"
+                bgGradient="linear(to-r, green.400,purple.500)"
+                fontWeight="extrabold"
+              >
+                Welcome To Rental Marketplace
+              </Box>{" "}
+            </Heading>
         </Box>
         <SimpleGrid columns={2} spacing={4} p={4}>
           {[...Array(6)].map((_, index) => (
