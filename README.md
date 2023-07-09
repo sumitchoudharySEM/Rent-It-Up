@@ -1,4 +1,4 @@
-# 🏠 RENT IT UP - Renting NFT Marketplace
+# 🏠 RENT IT UP - Rent Your Physicsal and Digital Assets on Flow!
 
 Rent It Up is a decentralized marketplace for renting non-fungible tokens (NFTs) built fully on-chain on Flow Blockchain. It allows users to browse, rent, and list NFTs for rent. The platform aims to provide a seamless experience for both NFT owners and renters, enabling them to engage in the emerging trend of NFT renting. ✨
 
