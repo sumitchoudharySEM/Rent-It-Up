@@ -15,15 +15,9 @@ export const Navbar = ({ onOpen }) => {
 
     return [
       {
-        href: "https://discord.gg/QAgDQXUGsU",
-        component: (
-          <ChakraLink
-            href="https://discord.gg/QAgDQXUGsU"
-            target="_blank"
-          >
-            <BsDiscord size="1.5rem" color="#2D3436" />
-          </ChakraLink>
-        ),
+        label: "Home",
+        href: "/",
+        isExternal: false,
       },
     ]
 
@@ -35,7 +29,7 @@ export const Navbar = ({ onOpen }) => {
         leftComponent={
           <>
             <Link href="/" passHref>
-              <Heading p="4"> Web3 Onboarding Starter </Heading>
+              <Heading p="4"> Rent It Up </Heading>
             </Link>
           </>
         }

@@ -23,7 +23,7 @@ const HomePage = () => {
             {!session && (
               <Box pt="200">
                 <Text p="5" textAlign="center" fontWeight="semibold" fontSize="xl">
-                  Login to get started!
+                  Login
                 </Text>
                 <Button
                   p="8"
