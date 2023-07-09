@@ -5,10 +5,12 @@ import AppLayout from '../components/AppLayout';
 const Marketplace: NextPage = () => {
   return (
     <Box>
-      <AppLayout>
+      {/* <AppLayout> */}
         <Box padding="4">
-        <Heading
+          <Flex align="center" justify="center">
+            <Heading
               mb={6}
+              mt={6}
               fontSize={{
                 base: "4xl",
                 md: "6xl",
@@ -23,8 +25,7 @@ const Marketplace: NextPage = () => {
               _dark={{
                 color: "gray.100",
               }}
-            >
-              {" "}
+            > Welcome To {" "}
               <Box
                 display={{
                   base: "block",
@@ -32,19 +33,20 @@ const Marketplace: NextPage = () => {
                 }}
                 w="full"
                 bgClip="text"
-                bgGradient="linear(to-r, green.400,purple.500)"
+                bgGradient="linear(to-r, green.400, purple.500)"
                 fontWeight="extrabold"
               >
-                Welcome To Rental Marketplace
-              </Box>{" "}
+                Rental Marketplace
+              </Box>
             </Heading>
+          </Flex>
         </Box>
-        <SimpleGrid columns={2} spacing={4} p={4}>
-          {[...Array(6)].map((_, index) => (
+        <SimpleGrid columns={4} spacing={4} p={4}>
+          {[...Array(16)].map((_, index) => (
             <Card key={index} />
           ))}
         </SimpleGrid>
-      </AppLayout>
+      {/* </AppLayout> */}
     </Box>
   );
 };

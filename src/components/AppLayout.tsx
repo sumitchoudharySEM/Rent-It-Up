@@ -16,7 +16,7 @@ export default function AppLayout({ children, showSidebar = false }: Props) {
   return (
     <>
       <Flex direction="column" minH="90vh" w="full">
-        <Navbar onOpen={onOpen} />
+        <Navbar onOpen= {  onOpen} />
         <Flex bg="page.background" flexGrow={1}>
           <Box
             w="100%"
