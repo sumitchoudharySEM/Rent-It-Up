@@ -33,7 +33,7 @@ export const Navbar = ({ onOpen }) => {
             </Link>
           </>
         }
-        menu={menuItems}
+        // menu={menuItems}
       />
     </>
   )
