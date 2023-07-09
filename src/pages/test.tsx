@@ -13,9 +13,6 @@ const Test: NextPage = () => {
         <Heading size="lg">Welcome to the 'Test' Page!</Heading>
         {/* Add your desired content here */}
       </Box>
-    <ApolloProvider client={client}>
-      {/* Your app components */}
-    </ApolloProvider>
       </AppLayout>  
     </Box>
   );
