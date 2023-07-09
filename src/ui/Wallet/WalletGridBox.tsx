@@ -21,20 +21,27 @@ export const WalletGridBox = ({
     <HStack
       spacing="4"
       p={{ base: "1rem", md: "2rem 3.5rem" }}
-      shadow="base"
+      shadow="black"
       flex="50%"
       rounded="md"
+      borderRadius="md" // Add borderRadius property
+      boxShadow="0 0 8 2 black"
       flexDir={{ base: "column", md: "row" }}
       alignItems={{ base: "flex-start", md: "center" }}
       justifyContent={{ base: "flex-start", md: "space-between" }}
-      bgColor="white"
       w="full"
-      _hover={{ bgColor: onClick && "gray.100" }}
       onClick={onClick}
+      _hover={{
+        ".noText": { color: "black" },
+        ".icon": { color: "black" },
+        bgColor: "#1da1f2",
+        color: "black",
+        boxShadow: "0 0 8px 2px #1da1f2",
+      }}
     >
       <HStack spacing="4" w="fit-content">
-        <Icon color="blackAlpha.700" boxSize="6" as={icon} />
-        <Text fontSize="md" textColor="blackAlpha.700" fontWeight="semibold" whiteSpace="pre-wrap">
+        <Icon className="icon" color="black" boxSize="6" as={icon} />
+        <Text className="noText" fontSize="md" textColor="black" fontWeight="semibold" whiteSpace="pre-wrap">
           {title}
         </Text>
       </HStack>
@@ -50,3 +57,4 @@ export const WalletGridBox = ({
     </HStack>
   )
 }
+

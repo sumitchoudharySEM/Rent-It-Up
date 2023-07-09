@@ -1,7 +1,5 @@
 import { Box, Flex, Tag, Text } from "@chakra-ui/react"
-
 import { getColorFromWalletState, getReadableWalletState } from "utils/wallet"
-
 import { WalletSwitcherButton } from "./WalletSwitcherButton"
 import { Wallet, useFlowUser } from "@niftory/sdk"
 
@@ -24,7 +22,8 @@ export const WalletCard = ({ wallet, onClick }: Props) => {
       fontWeight="bold"
       shadow="base"
       rounded="lg"
-      borderColor="gray.200"
+      borderRadius="black" // Add borderRadius property
+      borderColor="black"
       p="1rem"
       onClick={onClick}
     >
@@ -34,7 +33,7 @@ export const WalletCard = ({ wallet, onClick }: Props) => {
             <Box
               height="0.7rem"
               width="0.7rem"
-              bgColor="green.400"
+              bgColor="grey"
               rounded="full"
               title="Current Wallet"
             />
@@ -46,7 +45,7 @@ export const WalletCard = ({ wallet, onClick }: Props) => {
             </Tag>
           )}
         </Flex>
-        <Flex gap="0.2rem" fontSize="0.8rem">
+        <Flex marginTop={"4%"} gap="0.2rem" fontSize="0.8rem">
           Wallet State:{" "}
           {
             <Tag

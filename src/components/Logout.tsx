@@ -7,7 +7,8 @@ export function Logout() {
   return (
     <Button
       p="6"
-      backgroundColor="brand.400"
+      textColor="white"
+      backgroundColor="#1da1f2"
       fontSize="md"
       onClick={() => {
         signOut()
