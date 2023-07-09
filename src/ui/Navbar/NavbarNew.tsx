@@ -52,6 +52,7 @@ const NavbarNew: React.FC = () => {
 <Button as="a" href="/home" variant="ghost">Home</Button>
 <Button as="a" href="/" variant="ghost">Profile</Button>
 <Button as="a" href="/assets" variant="ghost">Add Assets</Button>
+<Button as="a" href="/myassets" variant="ghost"> My Assets</Button>
 
   <Button  colorScheme='twitter' variant='solid'>
     Sign Out

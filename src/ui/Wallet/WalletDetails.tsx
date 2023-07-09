@@ -88,7 +88,9 @@ export const WalletDetails = (props: WalletDetailsProps) => {
           <VStack mt={10}>
       <HStack spacing={4}>
         <Button
-          backgroundColor="brand.400"
+          backgroundColor="#1da1f2"
+          textColor="white"
+          _hover = "black"
           onClick={() => {
             disclosure.onOpen();
           }}
@@ -97,9 +99,10 @@ export const WalletDetails = (props: WalletDetailsProps) => {
         </Button>
         {walletStatus !== WalletState.Ready ? (
           <Button
-            p={6}
-            backgroundColor="brand.400"
-            fontSize="md"
+            // p={6}
+            backgroundColor="#1da1f2"
+            textColor="white"
+            _hover = "black"
             onClick={() => backendClient('createWallet')}
           >
             Retry Wallet Creation
