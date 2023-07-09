@@ -13,7 +13,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { AiOutlineMenu } from 'react-icons/ai';
-
+import { Logout } from '@components/Logout';
 const NavbarNew: React.FC = () => {
   const bg = useColorModeValue('white', 'gray.800');
   const mobileNav = useDisclosure();
@@ -54,9 +54,7 @@ const NavbarNew: React.FC = () => {
 <Button as="a" href="/assets" variant="ghost">Add Assets</Button>
 <Button as="a" href="/myassets" variant="ghost"> My Assets</Button>
 
-  <Button  colorScheme='twitter' variant='solid'>
-    Sign Out
-  </Button>
+<Logout/>
  
 
 
