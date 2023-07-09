@@ -3,7 +3,7 @@ import { Flex, Box, chakra, Stack, Link } from '@chakra-ui/react';
 const ExampleComponent = () => {
   return (
     <Flex
-      bg="page.background"
+      // bg="page.background"
       _dark={{
         bg: "#3e3e3e",
       }}

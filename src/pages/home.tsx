@@ -1,12 +1,26 @@
-import { Box, Heading, chakra, Stack, Button, Icon, Image, Text } from '@chakra-ui/react';
+import { Box, Heading, chakra, Stack, Button, Icon,Image,  Text } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import AppLayout from '../components/AppLayout';
 import ExampleComponent from 'ui/Extracomponent';
 import NavbarNew from '../ui/Navbar/NavbarNew';
+// Import Image that i recently added to images folder under src 
+import Images from 'next/image';
+import bgpic from "../images/bgpic.jpg";
 
 const Home: NextPage = () => {
-  return (
 
+  
+  const backgroundStyle = {
+    backgroundImage: `url(${bgpic.src})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    // height: '100vh',
+    // width: '100vw',
+  };  
+  
+  return (
+    <Box style={backgroundStyle}>
     <Box>
         <NavbarNew />
       {/* <AppLayout> */}
@@ -165,6 +179,8 @@ const Home: NextPage = () => {
         
       {/* </AppLayout> */}
     </Box>
+    </Box>
+    
   );
 };
 

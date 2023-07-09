@@ -2,11 +2,22 @@ import { Box, Heading, Flex, chakra, Image, SimpleGrid } from '@chakra-ui/react'
 import { NextPage } from 'next';
 import AppLayout from '../components/AppLayout';
 import NavbarNew from '../ui/Navbar/NavbarNew';
+import bgpic from "../images/bgpic.jpg";
 
 
 
 const Marketplace: NextPage = () => {
+
+  const backgroundStyle = {
+    backgroundImage: `url(${bgpic.src})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    // height: '100vh',
+    // width: '100vw',
+  };  
   return (
+    <Box style={backgroundStyle}>
     <Box>
       <NavbarNew/>
       {/* <AppLayout> */}
@@ -51,6 +62,7 @@ const Marketplace: NextPage = () => {
           ))}
         </SimpleGrid>
       {/* </AppLayout> */}
+    </Box>
     </Box>
   );
 };
