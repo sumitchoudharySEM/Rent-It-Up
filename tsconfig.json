@@ -19,6 +19,6 @@
       "@components/*": ["components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/NiftoryWalletInitializer.js", "src/pages/myassets.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/NiftoryWalletInitializer.js", "src/pages/myassets.tsx"],
   "exclude": ["node_modules"]
 }
