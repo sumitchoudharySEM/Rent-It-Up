@@ -7,7 +7,7 @@ import * as t from "@onflow/types";
 import { useEffect, useState } from "react";
 import { getMyNFTs } from "../cadence/scripts/mynfts.js";
 
-fcl.config().put("accessNode.api", "https://access-testnet.onflow.org").put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn");
+fcl.config().put("accessNode.api", "https://spring-dimensional-sheet.flow-testnet.discover.quiknode.pro/771c3fe42df6bdcdd8aec7b2c577b082e2ac20d0/").put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn");
 
 const MyAssets = () => {
 
@@ -33,7 +33,9 @@ const MyAssets = () => {
     console.log(user);
     const result = await fcl.send([
         fcl.script(getMyNFTs),
-        fcl.args([]),
+        fcl.args([
+          fcl.arg(props.address, t.Address)
+      ]),
     ]).then(fcl.decode);
     console.log(result);
     console.log(hii);
