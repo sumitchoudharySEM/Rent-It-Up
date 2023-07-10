@@ -10,7 +10,7 @@ import { mintNFT } from "../cadence/transactions/mint_assets";
 import { Web3Storage } from "web3.storage";
 
 fcl.config()
-  .put("accessNode.api", "https://access-testnet.onflow.org")
+  .put("accessNode.api", "https://rest-testnet.onflow.org")
   .put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn");
 
 const client = new Web3Storage({
@@ -35,20 +35,20 @@ const Assets: NextPage = () => {
 
   const setUserTx = async () => {
     console.log("Setting up user");
-    const transactionID = await fcl
-      .send([
-        fcl.transaction(setupUserTx),
-        fcl.args([]),
-        fcl.proposer(fcl.authz),
-        fcl.payer(fcl.authz),
-        fcl.authorizations([fcl.authz]),
-        fcl.limit(999),
-      ])
-      .then(fcl.decode);
-
-    console.log(transactionID);
-    return fcl.tx(transactionID).onceSealed();
+    const transactionID = await fcl.send([
+      fcl.transaction(setupUserTx),
+      fcl.args([]),
+      fcl.proposer(fcl.authz),
+      fcl.payer(fcl.authz),
+      fcl.authorizations([fcl.authz]),
+      fcl.limit(999),
+    ]).then((response: any) => {
+      const { transactionId } = response;
+      console.log(transactionId);
+      return fcl.tx(transactionId).onceSealed();
+    });
   };
+  
 
   const set_file = () => {
     const fileInput: any = document.querySelector('input[type="file"]');
@@ -65,25 +65,25 @@ const Assets: NextPage = () => {
     console.log(res);
     const hash = rootCid;
     console.log(hash);
-    const transactionID = await fcl
-      .send([
-        fcl.transaction(mintNFT),
-        fcl.args([
-          fcl.arg(rootCid, t.String),
-          fcl.arg(file.name, t.String),
-          fcl.arg(pricePerDay, t.UFix64),
-          fcl.arg(priceStack, t.UFix64),
-        ]),
-        fcl.proposer(fcl.authz),
-        fcl.payer(fcl.authz),
-        fcl.authorizations([fcl.authz]),
-        fcl.limit(100),
-      ])
-      .then(fcl.decode);
-
-    console.log(transactionID);
-    return fcl.tx(transactionID).onceSealed();
+    const transactionID = await fcl.send([
+      fcl.transaction(mintNFT),
+      fcl.args([
+        fcl.arg(rootCid, t.String),
+        fcl.arg(file.name, t.String),
+        fcl.arg(pricePerDay, t.UFix64),
+        fcl.arg(priceStack, t.UFix64),
+      ]),
+      fcl.proposer(fcl.authz),
+      fcl.payer(fcl.authz),
+      fcl.authorizations([fcl.authz]),
+      fcl.limit(100),
+    ]).then((response: any) => {
+      const { transactionId } = response;
+      console.log(transactionId);
+      return fcl.tx(transactionId).onceSealed();
+    });
   };
+  
 
   useEffect(() => {
     fcl.currentUser().subscribe(setUser);
@@ -143,7 +143,12 @@ const Assets: NextPage = () => {
         </Flex>
         <Button onClick={() => login()} colorScheme="teal" variant="solid">Log in</Button>
         <Heading as="h3" size="md" mt={4}>Your address is: {user && user.addr ? user.addr : ''}</Heading>        <form >
-          <Box bg="white" p={6} rounded="lg">
+          <Box bg="white" p={6} round
+
+export function send(arg0: any[]) {
+              throw new Error("Function not implemented.");
+            }
+ed="lg">
                         
             <Box mb={4}>
               <Text color="gray.700" fontWeight="medium" mb={2}>

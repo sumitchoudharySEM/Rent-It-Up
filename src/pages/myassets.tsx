@@ -8,7 +8,7 @@ import * as t from '@onflow/types';
 import { getMyNFTs } from '../cadence/scripts/mynfts.js';
 
 fcl.config()
-  .put('accessNode.api', 'https://spring-dimensional-sheet.flow-testnet.discover.quiknode.pro/771c3fe42df6bdcdd8aec7b2c577b082e2ac20d0/')
+  .put('accessNode.api', 'https://rest-testnet.onflow.org')
   .put('discovery.wallet', 'https://fcl-discovery.onflow.org/testnet/authn');
 
 const MyAssets: NextPage = () => {
@@ -34,7 +34,8 @@ const MyAssets: NextPage = () => {
     console.log(user);
     const result = await fcl
       .send([
-        fcl.script(getMyNFTs),
+        fcl.script`${getMyNFTs}`,
+       // fcl.script(getMyNFTs),
         fcl.args([
           fcl.arg(user.addr, t.Address) // Use 'user.addr' instead of 'props.address'
         ]),
