@@ -2,8 +2,44 @@ import { Box, Heading, Flex, chakra, Image, SimpleGrid } from '@chakra-ui/react'
 import { NextPage } from 'next';
 import AppLayout from '../components/AppLayout';
 import NavbarNew from '../ui/Navbar/NavbarNew';
+import * as fcl from "@onflow/fcl";
+import * as t from "@onflow/types";
+import { useEffect, useState } from "react";
+import { getMyNFTs } from "../cadence/scripts/mynfts.js";
 
-const MyAssets: NextPage = () => {
+fcl.config().put("accessNode.api", "https://access-testnet.onflow.org").put("discovery.wallet", "https://fcl-discovery.onflow.org/testnet/authn");
+
+const MyAssets = () => {
+
+  const [userNFTs, setUserNFTs] = useState();
+  const [user, setUser] = useState("");
+
+  const login = () => {
+    console.log("hii")
+    fcl.authenticate();
+    getUserNFTs();
+  };
+
+  useEffect(() => {
+    fcl.currentUser().subscribe(setUser);
+    if (user.addr){
+    getUserNFTs();
+    }
+  }, [])
+  
+  const getUserNFTs = async () => {
+    console.log("fun started");
+    console.log(user.addr);
+    console.log(user);
+    const result = await fcl.send([
+        fcl.script(getMyNFTs),
+        fcl.args([]),
+    ]).then(fcl.decode);
+    console.log(result);
+    console.log(hii);
+    setUserNFTs(result);
+    }
+
   // Dummy data for NFTs
   const nfts = [
     {
@@ -27,6 +63,8 @@ const MyAssets: NextPage = () => {
     <>
       <NavbarNew />
     <Box align="center" justify="center">
+    <button onClick={() => login()}>Log in</button>
+        <h3>your address is :{user && user.addr ? user.addr : ""}</h3>
       
     <Flex align="center" justify="center">
             <Heading

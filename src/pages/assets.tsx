@@ -79,14 +79,16 @@ const Assets: NextPage = () => {
   };
 
   useEffect(() => {
-    fcl.currentUser().subscribe(setUser)
+    fcl.currentUser().subscribe(setUser);
   }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
-    // Add your submit logic here, e.g. sending the form data to your API
   }
+
+  const login = () => {
+    fcl.authenticate();
+  };
 
   return (
     <>
@@ -128,6 +130,8 @@ const Assets: NextPage = () => {
             </Box>
           </Heading>
         </Flex>
+        <button onClick={() => login()}>Log in</button>
+        <h3>your address is :{user && user.addr ? user.addr : ""}</h3>
         <form >
           <Box bg="white" p={6} rounded="lg">
                         
