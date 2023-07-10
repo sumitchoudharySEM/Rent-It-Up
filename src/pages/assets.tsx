@@ -1,4 +1,4 @@
-import { Box, Heading, Input, Text, Textarea, Button, Flex } from "@chakra-ui/react";
+import { Box, Heading, Input, Text, Textarea, Button, Flex, FormCotrol, FormLabel } from "@chakra-ui/react";
 import { NextPage } from "next";
 import AppLayout from "../components/AppLayout";
 import React, { useEffect, useState } from "react";
@@ -141,9 +141,8 @@ const Assets: NextPage = () => {
             </Box>
           </Heading>
         </Flex>
-        <button onClick={() => login()}>Log in</button>
-        <h3>your address is :{user && user.addr ? user.addr : ""}</h3>
-        <form >
+        <Button onClick={() => login()} colorScheme="teal" variant="solid">Log in</Button>
+        <Heading as="h3" size="md" mt={4}>Your address is: {user && user.addr ? user.addr : ''}</Heading>        <form >
           <Box bg="white" p={6} rounded="lg">
                         
             <Box mb={4}>
@@ -180,10 +179,15 @@ const Assets: NextPage = () => {
                 onChange={(e) => setPricePerDay(e.target.value)}
               />
             </Box>
+
             
-            upload image
-            <input type="file" onChange={(e) => set_file()} />
             
+            {/* <FormControl mt={4}> */}
+            <FormLabel>Upload image</FormLabel>
+            <Input type="file" onChange={(e) => set_file()} />
+            {/* </FormControl> */}
+
+
             <Button
               bg="purple.500"
               color="white"

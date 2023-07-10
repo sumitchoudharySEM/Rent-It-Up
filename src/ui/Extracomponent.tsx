@@ -1,4 +1,5 @@
 import { Flex, Box, chakra, Stack, Link } from '@chakra-ui/react';
+import bgpic from "../images/bgpic.jpg";
 
 const ExampleComponent = () => {
   return (
@@ -64,7 +65,7 @@ const ExampleComponent = () => {
                 color: "gray.500",
               }}
             >
-              Start your free trial today.
+              Start your renting today.
             </chakra.span>
           </chakra.h2>
           <Stack
@@ -80,33 +81,6 @@ const ExampleComponent = () => {
               lg: 0,
             }}
           >
-            <Link
-              w={["full", , "auto"]}
-              display="inline-flex"
-              alignItems="center"
-              justifyContent="center"
-              px={5}
-              py={3}
-              border="solid transparent"
-              fontWeight="bold"
-              rounded="md"
-              shadow="md"
-              _light={{
-                color: "black",
-              }}
-              bg="brand.100"
-              _dark={{
-                bg: "brand.500",
-              }}
-              _hover={{
-                bg: "brand.700",
-                _dark: {
-                  bg: "brand.600",
-                },
-              }}
-            >
-              Get started
-            </Link>
             <Link
               w={["full", , "auto"]}
               display="inline-flex"
