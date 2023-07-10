@@ -34,7 +34,7 @@ export const WalletGridBox = ({
       _hover={{
         ".noText": { color: "black" },
         ".icon": { color: "black" },
-        bgColor: "#1da1f2",
+        bgColor: "#F0EAEA",
         color: "black",
         boxShadow: "0 0 8px 2px #1da1f2",
       }}
