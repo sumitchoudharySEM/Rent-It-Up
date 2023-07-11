@@ -36,20 +36,31 @@ const HomePage = () => {
         <Box px="1rem">
           <VStack>
             {!session && (
-              <Box pt="200">
-                <Text p="5" textAlign="center" fontWeight="semibold" fontSize="xl">
-                  Login
-                </Text>
-                <Button
-                  p="8"
-                  isLoading={isLoading}
-                  onClick={() => signIn()}
-                  colorScheme="red"
-                  leftIcon={<FaGoogle />}
+              <Box >
+                  <Box
+                  bg="white"
+                  borderRadius="md"
+                  boxShadow="lg"
+                  p={8}
+                  maxW="md"
+                  mx="auto"
+                  mt={10}
+                  alignItems="Center" justifyContent="Center"
                 >
-                  Sign in with Google
-                </Button>
-              </Box>
+                  <Text textAlign="center" fontWeight="semibold" fontSize="xl" mb={6}>
+                    Login
+                  </Text>
+                  <Button
+                    w="full"
+                    isLoading={false} // Set isLoading to true when the sign-in process is in progress
+                    onClick={() => {}}
+                    colorScheme="red"
+                    leftIcon={<FaGoogle />}
+                  >
+                    Sign in with Google
+                  </Button>
+                </Box>
+                </Box>
             )}
             {session && (
               <VStack>
