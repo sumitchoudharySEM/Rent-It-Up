@@ -36,7 +36,7 @@ const Assets: NextPage = () => {
   const setUserTx = async () => {
     console.log("Setting up user");
     const transactionID = await fcl.send([
-      fcl.transaction(setupUserTx),
+      fcl.transaction`{setupUserTx}`,
       fcl.args([]),
       fcl.proposer(fcl.authz),
       fcl.payer(fcl.authz),
@@ -59,17 +59,17 @@ const Assets: NextPage = () => {
   const mint = async () => {
     console.log("Uploading file...");
     console.log(file);
-    const rootCid = await client.put([file]);
+    //const rootCid = await client.put([file]);
     console.log("Uploading file... stage2");
-    const res = await client.get(rootCid);
-    console.log(res);
-    const hash = rootCid;
-    console.log(hash);
+    //const res = await client.get(rootCid);
+    //console.log(res);
+    //const hash = rootCid;
+    //console.log(hash);
     const transactionID = await fcl.send([
-      fcl.transaction(mintNFT),
+      fcl.transaction`{mintNFT}`,
       fcl.args([
-        fcl.arg(rootCid, t.String),
-        fcl.arg(file.name, t.String),
+        fcl.arg("HUU", t.String),
+        fcl.arg("mu", t.String),
         fcl.arg(pricePerDay, t.UFix64),
         fcl.arg(priceStack, t.UFix64),
       ]),
@@ -143,12 +143,7 @@ const Assets: NextPage = () => {
         </Flex>
         <Button onClick={() => login()} colorScheme="teal" variant="solid">Log in</Button>
         <Heading as="h3" size="md" mt={4}>Your address is: {user && user.addr ? user.addr : ''}</Heading>        <form >
-          <Box bg="white" p={6} round
-
-export function send(arg0: any[]) {
-              throw new Error("Function not implemented.");
-            }
-ed="lg">
+          <Box bg="white" p={6} >
                         
             <Box mb={4}>
               <Text color="gray.700" fontWeight="medium" mb={2}>
