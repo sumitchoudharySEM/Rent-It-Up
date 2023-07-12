@@ -66,7 +66,7 @@ const Assets: NextPage = () => {
     //const hash = rootCid;
     //console.log(hash);
     const transactionID = await fcl.send([
-      fcl.transaction`{mintNFT}`,
+      fcl.transaction`${mintNFT}`,
       fcl.args([
         fcl.arg("HUU", t.String),
         fcl.arg("mu", t.String),
